@@ -4,10 +4,13 @@ import './App.css';
 import FullScroll from 'react-full-scroll';
 import ReactPageScroller from 'react-page-scroller';
 import * as THREE from 'three'
+import p5 from 'p5'
 import img1 from './1.jpg'
 import img2 from './2.jpg'
 import img3 from './3.png'
 import BIRDS from 'vanta/dist/vanta.birds.min'
+// @ts-ignore
+import TOPOLOGY from 'vanta/dist/vanta.topology.min'
 // @ts-ignore
 import GOLOBE from 'vanta/dist/vanta.golobe.min'
 // @ts-ignore
@@ -17,10 +20,17 @@ const MyComponent = (props: any) => {
   const myRef = useRef(null)
   useEffect(() => {
     if (!vantaEffect) {
-      setVantaEffect(HALO({
+      setVantaEffect(TOPOLOGY({
         el: myRef.current,
-        THREE: THREE,
-        color: 'black',
+        // THREE: THREE,
+        p5: p5,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x82f0ff,
+        backgroundColor: 0x0
       }))
     }
     return () => {
