@@ -17,7 +17,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Warnes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
-
+.github-contact span{
+  font-size: 0.85rem;
+}
 :root {
   color: white;
   --color: #42fff6
@@ -26,7 +28,7 @@
 p {
   margin: 0px;
   color: #999;
-  font-size: 90px;
+  font-size: 3.8rem;
   font-family: 'font';
   /* letter-spacing: -16px; */
   -webkit-animation: flicker 2s linear forwards infinite;
@@ -151,6 +153,7 @@ p #n2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -174,7 +177,12 @@ p #n2 {
 
 
 }
-
+.vanta { 
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+}
 .container .card .face {
   width: 350px;
   height: 300px;
