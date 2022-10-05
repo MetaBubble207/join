@@ -2,7 +2,7 @@
  * @Author: linjingcheng 1152691418@qq.com
  * @Date: 2022-10-01 13:24:01
  * @LastEditors: linjingcheng 1152691418@qq.com
- * @LastEditTime: 2022-10-02 19:29:38
+ * @LastEditTime: 2022-10-03 10:25:33
  * @FilePath: \metabubble-join\src\views\profile\me.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -77,15 +77,13 @@ function Profile() {
         try {
             const res: any = await api.profile()
             setProfile(res)
-            if (res.schoolId === '') {
-                // console.log(res,'res',profile,'profile')
+            if (res.schoolId == '') {
                 history('/login')
             }
-            if (res.status !== -1) {
+            if (res.status != -1) {
                 history('/status')
             }
         } catch (error) {
-            history('/login')
             console.log(error, 'error')
         }
 
@@ -297,8 +295,7 @@ function Profile() {
                             item.url && (
                                 <div
                                     style={{
-                                        position: 'absolute',
-                                        bottom: 0,
+                                        position: 'relative',
                                         width: ' 100%',
                                         height: '100%',
                                         color: '#fff',
