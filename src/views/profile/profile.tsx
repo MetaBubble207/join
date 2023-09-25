@@ -2,7 +2,7 @@
  * @Author: linjingcheng 1152691418@qq.com
  * @Date: 2022-10-01 13:24:01
  * @LastEditors: linjingcheng 1152691418@qq.com
- * @LastEditTime: 2022-10-03 10:25:33
+ * @LastEditTime: 2022-10-05 17:45:01
  * @FilePath: \metabubble-join\src\views\profile\me.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -84,6 +84,7 @@ function Profile() {
                 history('/status')
             }
         } catch (error) {
+            history('/login')
             console.log(error, 'error')
         }
 

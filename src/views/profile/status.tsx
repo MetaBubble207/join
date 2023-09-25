@@ -2,7 +2,7 @@
  * @Author: linjingcheng 1152691418@qq.com
  * @Date: 2022-10-01 16:14:51
  * @LastEditors: linjingcheng 1152691418@qq.com
- * @LastEditTime: 2022-10-02 19:25:12
+ * @LastEditTime: 2022-10-05 17:58:49
  * @FilePath: \metabubble-join\src\views\profile\status.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -39,9 +39,46 @@ function Status() {
 
         }
     }
+    const statusTable = [
+        '报名成功',
+        '筛选通过',
+        '面试通过',
+        '已被录取',
+    ]
     useEffect(() => {
         getProfile();
     }, []);
+    const getContentByStatus = (status: number) => {
+        switch (status) {
+            case 0:
+                return (
+                    `
+                亲爱的${profile.name}同学，我们已经收到了您的报名申请，将尽快完成简历筛选。
+                期望与您在MetaBubble相遇，让我们一起完成有趣的事情吧！
+                `
+                )
+            case 1:
+                return (
+                    `
+                亲爱的${profile.name}同学，您的报名申请已经通过筛选，我们将很快将面试时间发送到您的手机和邮箱。
+                请留意，及时参加面试！祝面试顺利~
+                `
+                )
+            case 2:
+                return (
+                    `
+                    亲爱的${profile.name}同学，您的面试表现让我们印象深刻，很高兴地通知您，您已通过面试，我们将尽快推进流程。
+                    请注意后续通知，及时报道！
+                    `
+                )
+            case 3:
+                return (
+                    `
+                亲爱的${profile.name}同学，您已被录取为MetaBubble新成员~,请按照通知及时参加我们的迎新活动！
+                `
+                )
+        }
+    }
     return (
         <div>
 
@@ -52,7 +89,7 @@ function Status() {
                         MetaBubble实验室
                     </div>
                     <div className='status-title'>
-                        报名成功
+                        {statusTable[profile.status]}
                     </div>
 
                 </div>
@@ -68,10 +105,10 @@ function Status() {
                 很遗憾。没有通过简历筛选
             </div>
             <div>
-                <div className='content1'>
-                    亲爱的{profile.name}同学，我们已经收到了您的报名申请，将尽快完成简历筛选。
-                    期望与您在MetaBubble相遇，让我们一起完成有趣的事情吧！
+                <div className='content1' >
+                    {getContentByStatus(profile.status)}
                 </div>
+
             </div>
         </div>
     )
